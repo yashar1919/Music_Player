@@ -6,6 +6,8 @@ export default function AudioPlayer({
   onEnded,
   onNext,
   onPrevious,
+  shouldAutoPlay,
+  onAutoPlayHandled,
 }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -19,13 +21,21 @@ export default function AudioPlayer({
     if (currentTrack && audioRef.current) {
       audioRef.current.src = `file://${currentTrack.path}`;
       audioRef.current.load();
-      if (isPlaying) {
+
+      // پخش خودکار اگر shouldAutoPlay فعال باشه یا قبلاً داشت پخش می‌شد
+      if (isPlaying || shouldAutoPlay) {
         audioRef.current
           .play()
+          .then(() => {
+            setIsPlaying(true);
+            if (shouldAutoPlay && onAutoPlayHandled) {
+              onAutoPlayHandled();
+            }
+          })
           .catch((err) => console.error("Play error:", err));
       }
     }
-  }, [currentTrack]);
+  }, [currentTrack, shouldAutoPlay]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -34,7 +44,7 @@ export default function AudioPlayer({
     const updateTime = () => setCurrentTime(audio.currentTime);
     const updateDuration = () => setDuration(audio.duration);
     const handleEnded = () => {
-      setIsPlaying(false);
+      // isPlaying رو true نگه می‌داریم تا آهنگ بعدی خودکار پخش شه
       if (onEnded) onEnded();
     };
 

@@ -10,6 +10,7 @@ export default function App() {
   const [theme, setTheme] = useState("system");
   const [palette, setPalette] = useState("zorin");
   const [isPlaylistModalOpen, setIsPlaylistModalOpen] = useState(false);
+  const [shouldAutoPlay, setShouldAutoPlay] = useState(false);
 
   const currentTrack = tracks.length > 0 ? tracks[currentTrackIndex] : null;
 
@@ -66,7 +67,12 @@ export default function App() {
 
     const files = await window.electron.selectAudioFiles();
     if (files && files.length > 0 && !files.error) {
+      const hadNoTracks = tracks.length === 0;
       setTracks((prev) => [...prev, ...files]);
+      // اگر قبلاً آهنگی نبود، پخش خودکار فعال شه
+      if (hadNoTracks) {
+        setShouldAutoPlay(true);
+      }
     }
   };
 
@@ -93,6 +99,7 @@ export default function App() {
   const handleNext = () => {
     if (tracks.length === 0) return;
     setCurrentTrackIndex((prev) => (prev + 1) % tracks.length);
+    setShouldAutoPlay(true);
   };
 
   const handlePrevious = () => {
@@ -131,6 +138,8 @@ export default function App() {
           onEnded={handleTrackEnded}
           onNext={handleNext}
           onPrevious={handlePrevious}
+          shouldAutoPlay={shouldAutoPlay}
+          onAutoPlayHandled={() => setShouldAutoPlay(false)}
         />
 
         {/* Desktop Playlist */}

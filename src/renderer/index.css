@@ -504,26 +504,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 300px;
-    overflow-y: auto;
+    /* حذف max-height و overflow برای جلوگیری از اسکرولبار داخلی */
     padding-right: 8px;
-}
-
-.playlist-items::-webkit-scrollbar {
-    width: 6px;
-}
-
-.playlist-items::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.playlist-items::-webkit-scrollbar-thumb {
-    background: var(--card-border);
-    border-radius: 3px;
-}
-
-.playlist-items::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
 }
 
 .playlist-item {
