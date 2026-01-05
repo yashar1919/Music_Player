@@ -51,39 +51,39 @@ body {
     --danger: #ef4444;
 }
 
-/* Color Palettes - Zorin (Default) */
+/* Color Palettes - Zorin (Default) - آبی آسمانی تا آبی روشن */
 [data-palette="zorin"] {
-    --accent: #0CC1F3;
-    --accent-hover: #15A6E0;
-    --btn-bg: linear-gradient(135deg, #0CC1F3, #15A6E0);
+    --accent: #15B5F1;
+    --accent-hover: #0EA5E9;
+    --btn-bg: linear-gradient(135deg, #7DD3FC, #0EA5E9, #0284C7);
 }
 
-/* Ubuntu Palette */
+/* Ubuntu Palette - نارنجی گرم تا صورتی */
 [data-palette="ubuntu"] {
-    --accent: #E95420;
-    --accent-hover: #DD4814;
-    --btn-bg: linear-gradient(135deg, #E95420, #DD4814);
+    --accent: #F97316;
+    --accent-hover: #EA580C;
+    --btn-bg: linear-gradient(135deg, #FB923C, #F97316, #EC4899);
 }
 
-/* Linux Mint Palette */
+/* Linux Mint Palette - سبز لایمی روشن تا سبز زمردی */
 [data-palette="mint"] {
-    --accent: #87CF3E;
-    --accent-hover: #68B030;
-    --btn-bg: linear-gradient(135deg, #87CF3E, #68B030);
+    --accent: #84CC16;
+    --accent-hover: #65A30D;
+    --btn-bg: linear-gradient(135deg, #BEF264, #84CC16, #10B981);
 }
 
-/* Manjaro Palette */
+/* Manjaro Palette - سبز زمردی تا فیروزه‌ای */
 [data-palette="manjaro"] {
-    --accent: #35BF5C;
-    --accent-hover: #2DA94E;
-    --btn-bg: linear-gradient(135deg, #35BF5C, #2DA94E);
+    --accent: #10B981;
+    --accent-hover: #059669;
+    --btn-bg: linear-gradient(135deg, #34D399, #10B981, #14B8A6);
 }
 
-/* Elementary OS Palette */
+/* Elementary OS Palette - آبی آسمانی تا بنفش */
 [data-palette="elementary"] {
-    --accent: #64BAFF;
-    --accent-hover: #3689E6;
-    --btn-bg: linear-gradient(135deg, #64BAFF, #3689E6);
+    --accent: #60A5FA;
+    --accent-hover: #3B82F6;
+    --btn-bg: linear-gradient(135deg, #93C5FD, #60A5FA, #A78BFA);
 }
 
 #root {
