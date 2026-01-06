@@ -31,10 +31,10 @@ ipcMain.handle('select-audio-files', async () => {
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 500,
-        height: 600,
+        width: 400,
+        height: 530,
         minWidth: 400,
-        minHeight: 400,
+        minHeight: 530,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: false,

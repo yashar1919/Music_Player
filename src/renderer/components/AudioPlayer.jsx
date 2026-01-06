@@ -13,9 +13,9 @@ export default function AudioPlayer({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.7);
+  const [volume, setVolume] = useState(1.0);
   const [isMuted, setIsMuted] = useState(false);
-  const [previousVolume, setPreviousVolume] = useState(0.7);
+  const [previousVolume, setPreviousVolume] = useState(1.0);
 
   useEffect(() => {
     if (currentTrack && audioRef.current) {
@@ -103,7 +103,7 @@ export default function AudioPlayer({
   const toggleMute = () => {
     if (isMuted) {
       // Unmute
-      const volumeToRestore = previousVolume > 0 ? previousVolume : 0.7;
+      const volumeToRestore = previousVolume > 0 ? previousVolume : 1.0;
       setVolume(volumeToRestore);
       if (audioRef.current) {
         audioRef.current.volume = volumeToRestore;
