@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=AYMusic Player
+Comment=Minimalist audio player for Linux
+Exec=aymusic-player %F
+Terminal=false
+Type=Application
+Icon=aymusic-player
+GenericName=Music Player
+Categories=AudioVideo;Audio;Player;
+MimeType=audio/mpeg;audio/x-mpeg;audio/mp3;audio/x-mp3;audio/mpeg3;audio/x-mpeg3;audio/mpg;audio/x-mpg;audio/x-mpegaudio;audio/wav;audio/x-wav;audio/ogg;audio/x-ogg;application/ogg;audio/flac;audio/x-flac;audio/mp4;audio/x-m4a;audio/aac;audio/x-aac;audio/wma;audio/x-ms-wma;
+Keywords=Music;Audio;Player;Sound;Media;
+StartupNotify=true
+StartupWMClass=AYMusic Player

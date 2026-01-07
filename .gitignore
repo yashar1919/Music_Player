@@ -3,21 +3,42 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
+
+# Lock files (keep package-lock.json for consistency)
+# Uncomment below if you want to ignore lock files
+# package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-# Build outputs
+# Build outputs and distribution files
 dist/
 dist-electron/
 out/
-build/icons/
+release/
+app/dist/
+
+# Built/packaged applications
 *.AppImage
 *.deb
 *.rpm
 *.snap
 *.dmg
 *.exe
+*.msi
+
+# Build artifacts
+builder-*.yaml
+builder-debug.yml
+
+# Generated icons (keeping source icons)
+build/icons/16x16.png
+build/icons/32x32.png
+build/icons/48x48.png
+build/icons/64x64.png
+build/icons/128x128.png
+build/icons/256x256.png
+build/icons/512x512.png
+build/icons/icon.png
 
 # Vite
 .vite/
@@ -32,6 +53,7 @@ build/icons/
 ehthumbs.db
 Thumbs.db
 *~
+desktop.ini
 
 # IDE and Editor files
 .vscode/*
@@ -39,6 +61,7 @@ Thumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/*.json
 .idea/
 *.swp
 *.swo
@@ -50,6 +73,7 @@ Thumbs.db
 .settings/
 *.sublime-workspace
 *.sublime-project
+*.code-workspace
 
 # Environment variables
 .env
@@ -71,16 +95,34 @@ lerna-debug.log*
 coverage/
 *.lcov
 .nyc_output
+.jest/
 
 # Temporary files
 *.tmp
 *.temp
 .cache/
 .parcel-cache/
-
-# electron-builder output
-release/
-app/dist/
+*.bak
+*.backup
 
 # Local development
 .env.*.local
+
+# Electron specific
+*.asar
+
+# macOS specific
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows specific
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk

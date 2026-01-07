@@ -47,6 +47,38 @@ export default function App() {
     }
   }, []);
 
+  // Listen for files opened from command line or file manager
+  useEffect(() => {
+    if (!window.electron) return;
+
+    // Get initial files passed via command line
+    window.electron.getCommandLineFiles?.().then((files) => {
+      if (files && files.length > 0 && !files.error) {
+        setTracks(files);
+        setCurrentTrackIndex(0);
+        setShouldAutoPlay(true);
+      }
+    });
+
+    // Listen for files opened while app is running
+    const handleOpenFiles = (event, files) => {
+      if (files && files.length > 0) {
+        const hadNoTracks = tracks.length === 0;
+        setTracks((prev) => [...prev, ...files]);
+        if (hadNoTracks) {
+          setCurrentTrackIndex(0);
+          setShouldAutoPlay(true);
+        }
+      }
+    };
+
+    window.electron.on?.("open-files", handleOpenFiles);
+
+    return () => {
+      window.electron.removeListener?.("open-files", handleOpenFiles);
+    };
+  }, []);
+
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
     localStorage.setItem("mp-theme", newTheme);

@@ -1,10 +1,29 @@
 {
   "name": "aymusic-player",
   "version": "1.0.0",
-  "homepage": "https://example.com",
-  "description": "AYMusic Player - minimalist audio player for Linux",
-  "license": "ISC",
+  "homepage": "https://github.com/yashar1919/Music_Player",
+  "description": "AYMusic Player - A beautiful and minimalist audio player designed for Linux",
+  "license": "MIT",
   "author": "Yashar <yashar@example.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yashar1919/Music_Player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yashar1919/Music_Player/issues"
+  },
+  "keywords": [
+    "music",
+    "player",
+    "audio",
+    "linux",
+    "electron",
+    "mp3",
+    "flac",
+    "music-player",
+    "audio-player",
+    "desktop-app"
+  ],
   "type": "commonjs",
   "main": "main/index.js",
   "scripts": {
@@ -32,9 +51,9 @@
     "react-dom": "^19.2.3"
   },
   "build": {
-    "appId": "com.example.aymusicplayer",
+    "appId": "com.aymusic.player",
     "productName": "AYMusic Player",
-    "icon": "build/icons/512x512.png",
+    "icon": "build/icons/icon.png",
     "files": [
       "dist/**",
       "main/**",
@@ -49,7 +68,45 @@
         "deb",
         "AppImage"
       ],
-      "category": "AudioVideo"
+      "category": "AudioVideo",
+      "maintainer": "Yashar <yashar@example.com>",
+      "vendor": "AYMusic",
+      "synopsis": "Minimalist audio player for Linux",
+      "description": "AYMusic Player - A beautiful and minimalist audio player designed for Linux",
+      "mimeTypes": [
+        "audio/mpeg",
+        "audio/x-mpeg",
+        "audio/mp3",
+        "audio/x-mp3",
+        "audio/mpeg3",
+        "audio/x-mpeg3",
+        "audio/mpg",
+        "audio/x-mpg",
+        "audio/x-mpegaudio",
+        "audio/wav",
+        "audio/x-wav",
+        "audio/ogg",
+        "audio/x-ogg",
+        "application/ogg",
+        "audio/flac",
+        "audio/x-flac",
+        "audio/mp4",
+        "audio/x-m4a",
+        "audio/aac",
+        "audio/x-aac",
+        "audio/wma",
+        "audio/x-ms-wma"
+      ],
+      "desktop": {
+        "entry": {
+          "Name": "AYMusic Player",
+          "Comment": "Minimalist audio player for Linux",
+          "MimeType": "audio/mpeg;audio/x-mpeg;audio/mp3;audio/x-mp3;audio/mpeg3;audio/x-mpeg3;audio/mpg;audio/x-mpg;audio/x-mpegaudio;audio/wav;audio/x-wav;audio/ogg;audio/x-ogg;application/ogg;audio/flac;audio/x-flac;audio/mp4;audio/x-m4a;audio/aac;audio/x-aac;audio/wma;audio/x-ms-wma;",
+          "Categories": "AudioVideo;Audio;Player;",
+          "Keywords": "Music;Audio;Player;Sound;Media;",
+          "StartupWMClass": "AYMusic Player"
+        }
+      }
     }
   }
 }
