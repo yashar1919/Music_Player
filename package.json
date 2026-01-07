@@ -72,18 +72,30 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "build/icons/icon.ico",
       "artifactName": "${productName}-${version}-Setup.${ext}",
       "fileAssociations": [
         {
-          "ext": ["mp3", "wav", "ogg", "flac", "m4a", "aac", "wma"],
+          "ext": [
+            "mp3",
+            "wav",
+            "ogg",
+            "flac",
+            "m4a",
+            "aac",
+            "wma"
+          ],
           "name": "Audio File",
           "description": "Audio file",
           "icon": "build/icons/icon.ico",

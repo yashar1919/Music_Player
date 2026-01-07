@@ -30,7 +30,7 @@ name: Build
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
 
 jobs:
@@ -91,10 +91,12 @@ docker run --rm -ti \
 ## فایل‌های خروجی
 
 ### لینوکس (آماده است! ✅)
+
 - `dist/aymusic-player_1.0.0_amd64.deb` - بسته Debian
 - `dist/AYMusic Player-1.0.0.AppImage` - بسته AppImage
 
 ### ویندوز (در انتظار Wine یا استفاده از روش‌های بالا)
+
 - `dist/AYMusic Player-1.0.0-Setup.exe` - نصب‌کننده NSIS
 - `dist/AYMusic Player-1.0.0-Portable.exe` - نسخه قابل حمل
 
@@ -110,6 +112,7 @@ docker run --rm -ti \
 ## نکته مهم
 
 اگر می‌خوای بیلد ویندوز رو هم الان داشته باشی، بهترین کار اینه که:
+
 1. از GitHub Actions استفاده کنی (workflow رو push کن)
 2. یا منتظر بمونی تا Wine نصب بشه (حدود 5-10 دقیقه)
 
