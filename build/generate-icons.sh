@@ -51,10 +51,13 @@ cp AYM.png 512x512.png
 echo "📐 Generating icon.png (for AppImage)..."
 cp 512x512.png icon.png
 
+echo "📐 Generating icon.ico (for Windows)..."
+convert AYM.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+
 echo "✅ All icon sizes generated successfully!"
 echo ""
 echo "Generated files:"
-ls -lh *.png | grep -v AYM.png
+ls -lh *.png *.ico 2>/dev/null | grep -v AYM.png
 
 echo ""
 echo "✨ Done! You can now build the app with: npm run build"

@@ -32,9 +32,13 @@
     "dev": "concurrently \"npm run dev:renderer\" \"wait-on http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 npm run dev:electron\"",
     "build:renderer": "vite build",
     "build": "npm run build:renderer && electron-builder",
+    "build:linux": "npm run build:renderer && electron-builder --linux",
+    "build:windows": "npm run build:renderer && electron-builder --windows",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --linux deb",
     "dist:appimage": "electron-builder --linux AppImage",
+    "dist:windows": "electron-builder --windows nsis",
+    "dist:all": "npm run build:renderer && electron-builder --linux --windows",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -61,7 +65,48 @@
       "node_modules/**"
     ],
     "directories": {
-      "buildResources": "build"
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icons/icon.ico",
+      "artifactName": "${productName}-${version}-Setup.${ext}",
+      "fileAssociations": [
+        {
+          "ext": ["mp3", "wav", "ogg", "flac", "m4a", "aac", "wma"],
+          "name": "Audio File",
+          "description": "Audio file",
+          "icon": "build/icons/icon.ico",
+          "role": "Editor"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AYMusic Player",
+      "installerIcon": "build/icons/icon.ico",
+      "uninstallerIcon": "build/icons/icon.ico",
+      "installerHeaderIcon": "build/icons/icon.ico",
+      "license": "LICENSE",
+      "warningsAsErrors": false
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-Portable.${ext}"
     },
     "linux": {
       "target": [
